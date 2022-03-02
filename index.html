@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Application</title>
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Black.woff2') format('woff2'), url('assets/fonts/Inter-Black.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-ExtraBold.woff2') format('woff2'), url('assets/fonts/Inter-ExtraBold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Bold.woff2') format('woff2'), url('assets/fonts/Inter-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-ExtraLight.woff2') format('woff2'), url('assets/fonts/Inter-ExtraLight.woff') format('woff');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Light.woff2') format('woff2'), url('assets/fonts/Inter-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Medium.woff2') format('woff2'), url('assets/fonts/Inter-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Regular.woff2') format('woff2'), url('assets/fonts/Inter-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-SemiBold.woff2') format('woff2'), url('assets/fonts/Inter-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Thin.woff2') format('woff2'), url('assets/fonts/Inter-Thin.woff') format('woff');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        <section class="login__wrapper ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-12 col-sm-12 login_left min-vh-100 d-flex align-items-center justify-content-center position-relative">
+                        <div class="login_left--content-wrapper">
+                            <div class="login_left--fig mb-4">
+                                <img src="assets/img/login_fig.png" class="img-fluid" />
+                            </div>
+                            <div class="login_left--content pt-3">
+                                <h1>Project Management</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+
+                        </div>
+                        <div class="copyright position-absolute bottom-0">
+                            <span class="d-inline-block mb-2">&copy; 2022 All rights reserved.</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-12 col-sm-12 login_right d-flex align-items-center justify-content-center  min-vh-100">
+                        <div class="login__form--wrapper w-50">
+                            <h3 class="login__form--title position-relative pb-3">Let’s Connect</h3>
+                            <form class="mt-4" method="get" action="dashboard.html">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                    <label for="floatingInput">Email address</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <div class="d-grid">
+                                        <button type="sumit " class="btn btn-lg btn-block btn-black" name="submit">Login</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                  Remember Me
+                                                </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 col-12 text-end">
+                                        <a href="javascript:;" class="rm__link">Forget Password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-5">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12 col-12 text-center">
+                                        <a href="javascript:;" class="rm__link blue fw-bold d-block mb-4">Login with Single Sign-on (SSO)</a>
+                                        <span class="d-block signup fw-bold">Don't Have an Account? <a href="javascript:;" class="blue rm__link fw-bold">Signup</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

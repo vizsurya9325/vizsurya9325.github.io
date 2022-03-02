@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Application</title>
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Black.woff2') format('woff2'), url('assets/fonts/Inter-Black.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-ExtraBold.woff2') format('woff2'), url('assets/fonts/Inter-ExtraBold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Bold.woff2') format('woff2'), url('assets/fonts/Inter-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-ExtraLight.woff2') format('woff2'), url('assets/fonts/Inter-ExtraLight.woff') format('woff');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Light.woff2') format('woff2'), url('assets/fonts/Inter-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Medium.woff2') format('woff2'), url('assets/fonts/Inter-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Regular.woff2') format('woff2'), url('assets/fonts/Inter-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-SemiBold.woff2') format('woff2'), url('assets/fonts/Inter-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            src: url('assets/fonts/Inter-Thin.woff2') format('woff2'), url('assets/fonts/Inter-Thin.woff') format('woff');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/datatables.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="dash_body">
+    <header>
+        <nav class="navbar navbar-expand-lg px-2 py-3 dash_nav">
+            <div class="container-fluid">
+                <a class="navbar-brand position-relative" href="#">PM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#togglenav" aria-controls="togglenav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="togglenav">
+
+                    <ul class="navbar-nav ms-auto align-items-center mb-2 mb-lg-0">
+                        <li class="nav-item me-3">
+                            <a class="nav-link" aria-current="page" href="#"><img src="assets/img/help.svg"></a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="#"><img src="assets/img/notify.svg"></a>
+                        </li>
+                        <li class="nav-item position-relative user_info ps-3">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <div class="d-flex align-items-center pe-3">
+                                    <img src="assets/img/avatar-3.png" loading="lazy" alt="John Doe">
+                                    <div class="media-body ms-2">
+                                        <h4 class="mb-1">Ethan Morrison</h4>
+                                        <p class="mb-0">Project Manager</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu shadow-sm w-100" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-sm-12 col-12 main-sidebar position-relative">
+                    <aside class=" p-4 p-lg-3 position-sticky left-0 top-0">
+                        <div class="side_nav">
+                            <ul class="m-0 p-0">
+                                <li><a class="side_icon dashboard active" href="javascript:;">Dashboard</a></li>
+                                <li><a class="side_icon project" href="javascript:;">Projects</a></li>
+                                <li><a class="side_icon team" href="javascript:;">Team Info</a></li>
+                                <li><a class="side_icon sprints" href="javascript:;">Sprints</a></li>
+                                <li><a class="side_icon feedback" href="javascript:;">Feedbacks</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-md-10 col-lg-10 col-sm-12 col-12">
+                    <section class="body_dashboard">
+                        <div class="container-fluid">
+                            <div class="row mt-4 d-flex align-items-center">
+                                <div class="col-md-6 col-lg-6 col-sm-12 col-12">
+                                    <h1 class="page-title position-relative">Hello, <span>Ethan Morrison</span></h1>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-12 col-12 text-end">
+                                    <ul class="app_breadcrumb p-0 m-0">
+                                        <li><span><i class="icon icon_16 home"></i></span></li>
+                                        <li>Dashboard</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-9 col-lg-9 col-sm-12 col-12">
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3 col-sm-12 col-12">
+                                            <div class="cust_card p-3  shadow-sm">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="icon_holder pink me-3 shadow-sm">
+                                                        <span><i class="icon pending icon_32"></i></span>
+                                                    </div>
+                                                    <div class="card_content">
+                                                        <h3 class="m-0 mb-1">Pending</h3>
+                                                        <p class="m-0">12</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-sm-12 col-12">
+                                            <div class="cust_card p-3   shadow-sm">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="icon_holder blue me-3 shadow-sm">
+                                                        <span><i class="icon users icon_32"></i></span>
+                                                    </div>
+                                                    <div class="card_content">
+                                                        <h3 class="m-0 mb-1">Reportees</h3>
+                                                        <p class="m-0">43</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-sm-12 col-12">
+                                            <div class="cust_card p-3  shadow-sm">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="icon_holder yellow me-3 shadow-sm">
+                                                        <span><i class="icon tickets icon_32"></i></span>
+                                                    </div>
+                                                    <div class="card_content">
+                                                        <h3 class="m-0 mb-1">Open Tickets</h3>
+                                                        <p class="m-0">21</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-sm-12 col-12">
+                                            <div class="cust_card p-3 shadow-sm">
+                                                <div class="d-flex align-items-start">
+                                                    <div class="icon_holder red me-3 shadow-sm">
+                                                        <span><i class="icon bugs icon_32"></i></span>
+                                                    </div>
+                                                    <div class="card_content">
+                                                        <h3 class="m-0 mb-1">Open Bugs</h3>
+                                                        <p class="m-0">35</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-12 col-lg-6 col-md-6 col-12">
+                                            <div class="cust_card p-4 shadow-sm">
+                                                <h4 class="m-0 cus_card_title blue">Project Performace<span class="ms-2">(Last Five Days)</span></h4>
+                                                <div class="cust_card--content py-4">
+                                                    <canvas id="project_perf" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-6 col-md-6 col-12">
+                                            <div class="cust_card p-4 shadow-sm">
+                                                <h4 class="m-0 cus_card_title yellow">Mapped Resources</h4>
+                                                <div class="cust_card--content py-4">
+                                                    <canvas id="resource_map" height="300"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row my-3">
+                                        <div class="col-sm-12 col-lg-12 col-md-12 col-12">
+                                            <div class="cust_card p-4 shadow-sm">
+                                                <h4 class="m-0 cus_card_title red">Timesheet Approval</h4>
+                                                <div class="pt-4">
+                                                    <table class="table" id="pending_request">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <th>Designation</th>
+                                                                <th>Project</th>
+                                                                <th>Period</th>
+                                                                <th>Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Miller</td>
+                                                                <td>Team Lead</td>
+                                                                <td>Project 1</td>
+                                                                <td>21/02/2022 - 25/02/2022</td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                        <span title="approve" class="me-2"><i class="icon  approve"></i></span>
+                                                                        <span title="delete"><i class="icon  delete"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Jonathan Trott</td>
+                                                                <td>Sr.Consultant</td>
+                                                                <td>Project 2</td>
+                                                                <td>21/02/2022 - 25/02/2022</td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                        <span title="approve" class="me-2"><i class="icon  approve"></i></span>
+                                                                        <span title="delete"><i class="icon  delete"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Michael Clarke</td>
+                                                                <td>UI/UX Designer</td>
+                                                                <td>Project 4</td>
+                                                                <td>21/02/2022 - 25/02/2022</td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                        <span title="approve" class="me-2"><i class="icon  approve"></i></span>
+                                                                        <span title="delete"><i class="icon  delete"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Marnus Waugh</td>
+                                                                <td>UI Developer</td>
+                                                                <td>Project 3</td>
+                                                                <td>21/02/2022 - 25/02/2022</td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                        <span title="approve" class="me-2"><i class="icon  approve"></i></span>
+                                                                        <span title="delete"><i class="icon  delete"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Glenn Santner</td>
+                                                                <td>Module Lead</td>
+                                                                <td>Project 3</td>
+                                                                <td>21/02/2022 - 25/02/2022</td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center justify-content-center">
+                                                                        <span title="approve" class="me-2"><i class="icon  approve"></i></span>
+                                                                        <span title="delete"><i class="icon  delete"></i></span>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-lg-3 col-sm-12 col-12">
+                                    <div class="cust_card p-4 shadow-sm">
+                                        <h4 class="m-0 cus_card_title">New Joinees</h4>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/new_join.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Mark Robinson</h5>
+                                                <p class="m-0">Sr. Consultant</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/new_join_2.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Janet Plumpton</h5>
+                                                <p class="m-0">Automation Engineer</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/new_join_3.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">John Abraham</h5>
+                                                <p class="m-0">Sr. Automation Engineer</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/new_join-4.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Emma Watson</h5>
+                                                <p class="m-0">Senior Software Engineer</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-3 align-items-center">
+                                            <a class="rm__link" href="javascript:;">View All</a>
+                                        </div>
+                                    </div>
+                                    <div class="cust_card p-4 shadow-sm mt-3">
+                                        <h4 class="m-0 cus_card_title red">Top Five Performers</h4>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/report__1.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Olivia James</h5>
+                                                <p class="m-0">Senior Consultant</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/report__2.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Sophia Abraham</h5>
+                                                <p class="m-0">Sr. Test Consultant</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/avatar-2.png" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Scarlett Johnson</h5>
+                                                <p class="m-0">Sr. Software Engineer</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/avatar-3.png" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Graham Smiley</h5>
+                                                <p class="m-0">Sr. Software Engineer</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="card_figure me-3">
+                                                <img src="assets/img/my_avatar.jpg" loading="lazy">
+                                            </div>
+                                            <div class="card_fig_content">
+                                                <h5 class="mb-1">Tony Stark</h5>
+                                                <p class="m-0">As. Software Engineer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/datatables.min.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script>
+        var options = {
+            plugins: {
+                legend: {
+                    position: "bottom",
+
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20,
+                    }
+                }
+            },
+            responsive: true,
+        };
+        var r_map = document.getElementById('resource_map');
+        var pro_per = document.getElementById('project_perf');
+        var doughnut = new Chart(r_map, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Project 1',
+                    'Project 2',
+                    'Project 3',
+                    'Project 4',
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [10, 12, 15, 6],
+                    backgroundColor: [
+                        '#79ffa8',
+                        '#ff79c5',
+                        '#ff9a9a',
+                        '#84c0ff'
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: options
+        });
+
+        var stacked_bar = new Chart(pro_per, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Project 1',
+                    'Project 2',
+                    'Project 3',
+                    'Project 4',
+                ],
+                datasets: [{
+                    label: 'Opened Tickets',
+                    data: [7, 8, 4, 4],
+                    backgroundColor: '#ffee78',
+                }, {
+                    label: 'Re-Opened Tickets',
+                    data: [10, 12, 15, 6],
+                    backgroundColor: '#ff9ca3',
+                }, {
+                    label: 'Closed Tickets',
+                    data: [100, 121, 15, 6],
+                    backgroundColor: '#78b4ff',
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: "bottom",
+
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                        }
+                    }
+                },
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                        grid: {
+                            display: false,
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: {
+                            offset: true
+                        }
+                    }
+                }
+            }
+        });
+
+        $('#pending_request').DataTable({
+            "ordering": false,
+            "dom": "<'row'<'col-sm-12'tr>>" +
+                "<'row d-flex align-items-center dataTable_bottom'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 d-flex justify-content-end align-items-center'lp>>",
+        });
+    </script>
+</body>
+
+</html>
